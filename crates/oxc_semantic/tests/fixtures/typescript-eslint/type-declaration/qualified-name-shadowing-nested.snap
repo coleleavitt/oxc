@@ -1,0 +1,113 @@
+---
+source: crates/oxc_semantic/tests/main.rs
+assertion_line: 147
+input_file: crates/oxc_semantic/tests/fixtures/typescript-eslint/type-declaration/qualified-name-shadowing-nested.ts
+---
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "flags": "ScopeFlags(StrictMode)",
+                "id": 3,
+                "node": "TSTypeAliasDeclaration",
+                "symbols": [
+                  {
+                    "flags": "SymbolFlags(TypeParameter)",
+                    "id": 3,
+                    "name": "T",
+                    "node": "TSTypeParameter(T)",
+                    "references": [
+                      {
+                        "flags": "ReferenceFlags(Type)",
+                        "id": 0,
+                        "name": "T",
+                        "node_id": 15
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "flags": "ScopeFlags(StrictMode | TsModuleBlock)",
+            "id": 2,
+            "node": "TSModuleDeclaration(B)",
+            "symbols": [
+              {
+                "flags": "SymbolFlags(TypeAlias)",
+                "id": 2,
+                "name": "C",
+                "node": "TSTypeAliasDeclaration",
+                "references": []
+              }
+            ]
+          }
+        ],
+        "flags": "ScopeFlags(StrictMode | TsModuleBlock)",
+        "id": 1,
+        "node": "TSModuleDeclaration(A)",
+        "symbols": [
+          {
+            "flags": "SymbolFlags(NamespaceModule)",
+            "id": 1,
+            "name": "B",
+            "node": "TSModuleDeclaration(B)",
+            "references": []
+          }
+        ]
+      },
+      {
+        "children": [],
+        "flags": "ScopeFlags(StrictMode)",
+        "id": 4,
+        "node": "TSTypeAliasDeclaration",
+        "symbols": [
+          {
+            "flags": "SymbolFlags(TypeParameter)",
+            "id": 5,
+            "name": "A",
+            "node": "TSTypeParameter(A)",
+            "references": [
+              {
+                "flags": "ReferenceFlags(Type)",
+                "id": 2,
+                "name": "A",
+                "node_id": 29
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "flags": "ScopeFlags(StrictMode | Top)",
+    "id": 0,
+    "node": "Program",
+    "symbols": [
+      {
+        "flags": "SymbolFlags(NamespaceModule)",
+        "id": 0,
+        "name": "A",
+        "node": "TSModuleDeclaration(A)",
+        "references": [
+          {
+            "flags": "ReferenceFlags(Type)",
+            "id": 1,
+            "name": "A",
+            "node_id": 24
+          }
+        ]
+      },
+      {
+        "flags": "SymbolFlags(TypeAlias)",
+        "id": 4,
+        "name": "Test",
+        "node": "TSTypeAliasDeclaration",
+        "references": []
+      }
+    ]
+  }
+]
