@@ -1,0 +1,803 @@
+# Instincts generated from https://github.com/coleleavitt/oxc
+# Generated: 2026-07-17T19:25:16.494Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: oxc-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, refactor, chore, feat, test
+
+## Evidence
+
+- 100 commits analyzed
+- Detected conventional commit pattern
+- Examples: docs(linter): Improve docs for `import/max-dependencies` rule. (#19119), refactor(linter): Enforce config options for various max-* rules. (#19122)
+
+---
+id: oxc-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Commit Length
+
+## Action
+
+Write moderate-length commit messages (~72 characters)
+
+## Evidence
+
+- Average commit message length: 72 chars
+- Based on 100 commits
+
+---
+id: oxc-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: oxc-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: oxc-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: oxc-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: oxc-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Test Framework
+
+## Action
+
+Use jest as the test framework
+
+## Evidence
+
+- Test framework detected: jest
+- File pattern: *.test.ts
+
+---
+id: oxc-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: oxc-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Test Mocking
+
+## Action
+
+Use sinon for mocking
+
+## Evidence
+
+- Mocking pattern detected: sinon
+- Consistent across test files
+
+---
+id: oxc-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: no
+
+---
+id: oxc-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~11x per month
+- Files: apps/oxlint/src-js/*, apps/oxlint/src-js/package/*, apps/oxlint/test/*
+
+---
+id: oxc-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~7x per month
+- Files: src/**/*
+
+---
+id: oxc-workflow-update-rust-crate-dependency
+trigger: "when doing update rust crate dependency"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Workflow Update Rust Crate Dependency
+
+## Action
+
+Follow the update-rust-crate-dependency workflow:
+1. Update the version of the crate in Cargo.toml (sometimes implicit via lockfile)
+2. Regenerate Cargo.lock
+3. Commit Cargo.lock (and possibly Cargo.toml)
+4. Include changelog or release notes in commit message
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: Cargo.lock
+
+---
+id: oxc-workflow-update-npm-package-dependency
+trigger: "when doing update npm package dependency"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Workflow Update Npm Package Dependency
+
+## Action
+
+Follow the update-npm-package-dependency workflow:
+1. Update version(s) in package.json (sometimes implicit)
+2. Regenerate pnpm-lock.yaml
+3. Commit pnpm-lock.yaml (and possibly package.json)
+4. Include changelog or release notes in commit message
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: pnpm-lock.yaml, package.json
+
+---
+id: oxc-workflow-update-github-actions-workflow
+trigger: "when doing update github actions workflow"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Workflow Update Github Actions Workflow
+
+## Action
+
+Follow the update-github-actions-workflow workflow:
+1. Update version(s) of actions in .github/workflows/*.yml
+2. Commit updated workflow file(s)
+3. Include changelog or release notes in commit message
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: .github/workflows/*.yml
+
+---
+id: oxc-workflow-add-or-update-linter-rule
+trigger: "when doing add or update linter rule"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Workflow Add Or Update Linter Rule
+
+## Action
+
+Follow the add-or-update-linter-rule workflow:
+1. Edit or create rule implementation in crates/oxc_linter/src/rules/**/rule_name.rs
+2. Update or add corresponding snapshot in crates/oxc_linter/src/snapshots/rule_name.snap
+3. Optionally update documentation or config enforcement
+4. Optionally update utils or helpers if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: crates/oxc_linter/src/rules/**/*.rs, crates/oxc_linter/src/snapshots/*.snap, crates/oxc_linter/src/utils/*.rs
+
+---
+id: oxc-workflow-fix-linter-plugin-js-fix-suggestion
+trigger: "when doing fix linter plugin js fix suggestion"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Workflow Fix Linter Plugin Js Fix Suggestion
+
+## Action
+
+Follow the fix-linter-plugin-js-fix-suggestion workflow:
+1. Edit apps/oxlint/src-js/plugins/fix.ts or report.ts
+2. Edit apps/oxlint/src-js/package/rule_tester.ts
+3. Edit apps/oxlint/src/js_plugins/fix.rs (Rust side)
+4. Update or add test cases in apps/oxlint/test/fixtures/ or test/rule_tester.test.ts
+5. Update conformance snapshots if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: apps/oxlint/src-js/plugins/fix.ts, apps/oxlint/src-js/plugins/report.ts, apps/oxlint/src-js/package/rule_tester.ts
+
+---
+id: oxc-workflow-refactor-shared-context-or-traverse-logic
+trigger: "when doing refactor shared context or traverse logic"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Workflow Refactor Shared Context Or Traverse Logic
+
+## Action
+
+Follow the refactor-shared-context-or-traverse-logic workflow:
+1. Edit context/state/traverse files in crates/oxc_transformer or crates/oxc_minifier
+2. Update all affected transform or minifier modules to use new context/state structure
+3. Remove or consolidate redundant code
+4. Run and update tests as needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: crates/oxc_transformer/src/context.rs, crates/oxc_transformer/src/state.rs, crates/oxc_transformer/src/common/**/*.rs
+
+---
+id: oxc-workflow-update-conformance-tests-or-snapshots
+trigger: "when doing update conformance tests or snapshots"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/oxc
+---
+
+# Oxc Workflow Update Conformance Tests Or Snapshots
+
+## Action
+
+Follow the update-conformance-tests-or-snapshots workflow:
+1. Update apps/oxlint/conformance/snapshots/*.md
+2. Update or add test fixtures in apps/oxlint/test/fixtures/**
+3. Update test logic in apps/oxlint/conformance/src/groups/*.ts
+4. Commit all updated snapshots and fixtures
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: apps/oxlint/conformance/snapshots/*.md, apps/oxlint/test/fixtures/**/*, apps/oxlint/conformance/src/groups/*.ts
+
+---
+id: oxc-instinct-filename-snake-case
+trigger: "When creating or renaming a Rust source file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Filename Snake Case
+
+## Action
+
+Use snake_case for the file name
+
+## Evidence
+
+- Pattern in crates/oxc_linter/src/rules/import/max_dependencies.rs
+- Pattern in crates/oxc_linter/src/rules/eslint/max_lines.rs
+
+---
+id: oxc-instinct-function-camel-case
+trigger: "When defining a function in Rust"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Function Camel Case
+
+## Action
+
+Use camelCase for the function name
+
+## Evidence
+
+- Naming convention in codeStyle section
+- Pattern in Rust codebase
+
+---
+id: oxc-instinct-class-pascal-case
+trigger: "When defining a class or struct in Rust"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Class Pascal Case
+
+## Action
+
+Use PascalCase for the class or struct name
+
+## Evidence
+
+- Naming convention in codeStyle section
+
+---
+id: oxc-instinct-constant-screaming-snake-case
+trigger: "When defining a constant in Rust"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Constant Screaming Snake Case
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for the constant name
+
+## Evidence
+
+- Naming convention in codeStyle section
+
+---
+id: oxc-instinct-import-relative
+trigger: "When importing modules in Rust"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Import Relative
+
+## Action
+
+Use relative imports
+
+## Evidence
+
+- ImportStyle: relative in codeStyle section
+
+---
+id: oxc-instinct-export-mixed
+trigger: "When exporting modules or functions"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Export Mixed
+
+## Action
+
+Use mixed export style (named and default as appropriate)
+
+## Evidence
+
+- ExportStyle: mixed in codeStyle section
+
+---
+id: oxc-instinct-test-file-pattern
+trigger: "When adding a new test file for JS/TS code"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Test File Pattern
+
+## Action
+
+Name the file with the pattern *.test.ts
+
+## Evidence
+
+- testing.filePattern: *.test.ts
+- Pattern in apps/oxlint/test/rule_tester.test.ts
+
+---
+id: oxc-instinct-test-framework-jest
+trigger: "When writing tests for JS/TS code"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Test Framework Jest
+
+## Action
+
+Use Jest as the test framework
+
+## Evidence
+
+- testing.framework: jest
+
+---
+id: oxc-instinct-test-mocking-sinon
+trigger: "When mocking in JS/TS tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Test Mocking Sinon
+
+## Action
+
+Use sinon for mocking
+
+## Evidence
+
+- testing.mockingStyle: sinon
+
+---
+id: oxc-instinct-test-type-unit-integration
+trigger: "When writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Test Type Unit Integration
+
+## Action
+
+Include both unit and integration tests where appropriate
+
+## Evidence
+
+- testing.testTypes: unit, integration
+
+---
+id: oxc-instinct-commit-conventional
+trigger: "When writing a commit message"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Commit Conventional
+
+## Action
+
+Use the Conventional Commits format with a valid prefix (fix, feat, refactor, chore, test, docs, perf, release)
+
+## Evidence
+
+- Pattern in commit: docs(linter): Improve docs for `import/max-dependencies` rule. (#19119)
+- Pattern in commit: fix(formatter): preserve numeric separators in number literals (#19015)
+- commits.type: conventional
+
+---
+id: oxc-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Commit Length
+
+## Action
+
+Keep the commit message length around 72 characters on average
+
+## Evidence
+
+- commits.averageLength: 72
+
+---
+id: oxc-instinct-update-rust-crate-dependency
+trigger: "When a new version of a Rust crate is released and the project wants to stay up to date"
+confidence: 0.98
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Update Rust Crate Dependency
+
+## Action
+
+Update Cargo.toml and/or Cargo.lock, commit the changes, and include changelog or release notes in the commit message
+
+## Evidence
+
+- Workflow: update-rust-crate-dependency
+- Pattern in files: Cargo.lock
+
+---
+id: oxc-instinct-update-npm-package-dependency
+trigger: "When a new version of an npm package is released and the project wants to stay up to date"
+confidence: 0.97
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Update Npm Package Dependency
+
+## Action
+
+Update package.json and pnpm-lock.yaml, commit the changes, and include changelog or release notes in the commit message
+
+## Evidence
+
+- Workflow: update-npm-package-dependency
+- Pattern in files: package.json, pnpm-lock.yaml
+
+---
+id: oxc-instinct-update-github-actions-workflow
+trigger: "When a new version of a GitHub Action is released or workflow improvements are needed"
+confidence: 0.93
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Update Github Actions Workflow
+
+## Action
+
+Update .github/workflows/*.yml files, commit the changes, and include changelog or release notes in the commit message
+
+## Evidence
+
+- Workflow: update-github-actions-workflow
+- Pattern in files: .github/workflows/*.yml
+
+---
+id: oxc-instinct-add-or-update-linter-rule
+trigger: "When adding a new linter rule or improving/fixing an existing one"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Add Or Update Linter Rule
+
+## Action
+
+Edit or create rule implementation in crates/oxc_linter/src/rules/**/rule_name.rs, update or add corresponding snapshot, optionally update documentation or utils
+
+## Evidence
+
+- Workflow: add-or-update-linter-rule
+- Pattern in files: crates/oxc_linter/src/rules/**/*.rs, crates/oxc_linter/src/snapshots/*.snap
+
+---
+id: oxc-instinct-fix-linter-plugin-js-fix-suggestion
+trigger: "When plugin fix/suggestion logic needs to be aligned with ESLint or bugs are found in fix application"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Fix Linter Plugin Js Fix Suggestion
+
+## Action
+
+Edit apps/oxlint/src-js/plugins/fix.ts or report.ts, update related files and tests, update conformance snapshots if needed
+
+## Evidence
+
+- Workflow: fix-linter-plugin-js-fix-suggestion
+- Pattern in files: apps/oxlint/src-js/plugins/fix.ts, apps/oxlint/test/rule_tester.test.ts
+
+---
+id: oxc-instinct-refactor-shared-context-or-traverse-logic
+trigger: "When context/state/traverse logic needs to be improved, deduplicated, or made more efficient"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Refactor Shared Context Or Traverse Logic
+
+## Action
+
+Edit context/state/traverse files in crates/oxc_transformer or crates/oxc_minifier, update all affected modules, remove redundant code, and update tests
+
+## Evidence
+
+- Workflow: refactor-shared-context-or-traverse-logic
+- Pattern in files: crates/oxc_transformer/src/context.rs, crates/oxc_minifier/src/minifier_traverse.rs
+
+---
+id: oxc-instinct-update-conformance-tests-or-snapshots
+trigger: "When rule/plugin logic changes or ESLint version is bumped, requiring new test baselines"
+confidence: 0.91
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/oxc
+---
+
+# Oxc Instinct Update Conformance Tests Or Snapshots
+
+## Action
+
+Update apps/oxlint/conformance/snapshots/*.md, update or add test fixtures, update test logic, and commit all updated snapshots and fixtures
+
+## Evidence
+
+- Workflow: update-conformance-tests-or-snapshots
+- Pattern in files: apps/oxlint/conformance/snapshots/*.md, apps/oxlint/test/fixtures/**/*
+
